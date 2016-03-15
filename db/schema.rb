@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309110516) do
+ActiveRecord::Schema.define(version: 20160315182725) do
+
+# Could not dump table "companies" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "user_company", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "company_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -27,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160309110516) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "pseudonyme"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
