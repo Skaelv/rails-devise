@@ -56,8 +56,8 @@ IntercomRails.config do |config|
   # A Proc that given a user returns an array of companies
   # that the user belongs to.
   #
-  config.user.company_association = Proc.new { current_user.companies.to_a }
-  # config.user.company_association = Proc.new { |user| user.companies.to_a }
+  # config.user.company_association = Proc.new { user.companies.to_a }
+  config.user.company_association = Proc.new { |user| user.companies.to_a }
 
   # == Current company method/variable
   # The method/variable that contains the current company for the current user,
